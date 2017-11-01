@@ -163,10 +163,9 @@ class ToastContainer extends Component {
   }
 
   show(content, options) {
-    if (!(this.canBeRendered(content))) {
-      throw new Error(`The element you provided cannot be rendered. You provided an element of type ${typeof content}`);
-    }
-    const toastId = options.toastId;
+    //throw new Error(`The element you provided cannot be rendered. You provided an element of type ${typeof content}`);
+    if ((this.canBeRendered(content))) {
+      const toastId = options.toastId;
     const closeToast = () => this.removeToast(toastId);
     const toastOptions = {
       id: toastId,
@@ -218,6 +217,7 @@ class ToastContainer extends Component {
     this.setState({
       toast: [...this.state.toast, toastId]
     });
+    }    
   }
 
   makeToast(content, options) {
